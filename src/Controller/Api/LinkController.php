@@ -16,7 +16,7 @@ namespace GolfLima\Yauss\Controller\Api;
 use DDesrosiers\SilexAnnotations\Annotations as SLX;
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
-use Virtua\Eng\Sta\Exception\NotImplementedException;
+use GolfLima\Yauss\Exception\NotImplementedException;
 
 /**
  * Controller for "/api/links", manages users.
