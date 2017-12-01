@@ -1,0 +1,18 @@
+web:
+  image: virtuasa/php:7.1
+  ports: 
+    - "8080:80"
+    - "8443:443"
+  volumes: 
+    - ./:/data
+
+# Build:    `docker-compose build`
+# Run:      `docker-compose up -d`
+# Stop:     `docker-compose down`
+# Shell:    `docker-compose exec web /bin/bash`
+
+# Windows:  `docker-compose run web bash -c 'dos2unix *.sh && chmod +x *.sh'`
+
+# phpcs:    `docker-compose run web ./phpcs.sh`
+# phpcbf:   `docker-compose run web ./phpcbf.sh`
+# phpunit:  `docker-compose run web ./phpunit.sh`
