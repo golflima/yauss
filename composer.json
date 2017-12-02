@@ -54,8 +54,8 @@
             "": "src/" 
         },
         "psr-4": { 
-            "GolfLima\\Yauss\\": "src/", 
-            "GolfLima\\Yauss\\Tests\\": "tests/"
+            "App\\": "src/App", 
+            "App\\Tests\\": "tests/"
         }
     },
     "scripts": {

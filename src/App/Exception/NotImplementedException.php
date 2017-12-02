@@ -11,7 +11,7 @@
  * Otherwise, see: <https://www.gnu.org/licenses/agpl-3.0>.
  */
 
-namespace GolfLima\Yauss\Exception;
+namespace App\Exception;
 
 /**
  * This exception is thrown when a function, a method or any portion of code is not implemented yet.

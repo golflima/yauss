@@ -11,11 +11,14 @@
  * Otherwise, see: <https://www.gnu.org/licenses/agpl-3.0>.
  */
 
+use Doctrine\DBAL\Tools\Console\Helper\ConnectionHelper;
+use Doctrine\ORM\Tools\Console\Helper\EntityManagerHelper;
 use Symfony\Component\Console\Application;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Helper\HelperSet;
 use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Filesystem\Filesystem;
 
 $console = new Application('GL YAUSS - Yet Another Url Shortener Service', 'n/a');
@@ -38,5 +41,12 @@ $console
             );
         }
     );
+
+$helperSet = new HelperSet(array(
+    'db' => new ConnectionHelper($app['orm.em']->getConnection()),
+    'em' => new EntityManagerHelper($app['orm.em'])
+));
+$console->setHelperSet($helperSet);
+Doctrine\ORM\Tools\Console\ConsoleRunner::addCommands($console);
 
 return $console;

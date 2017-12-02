@@ -11,7 +11,7 @@
  * Otherwise, see: <https://www.gnu.org/licenses/agpl-3.0>.
  */
 
-namespace GolfLima\Yauss\Controller;
+namespace App\Controller;
 
 use DDesrosiers\SilexAnnotations\Annotations as SLX;
 use Parsedown;

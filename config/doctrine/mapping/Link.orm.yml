@@ -1,0 +1,47 @@
+# This file is part of GL YAUSS.
+# See: <https://github.com/golflima/yauss>.
+#
+# Copyright (C) 2017 Jérémy Walther <jeremy.walther@golflima.net>.
+#
+# For the full copyright and license information, please view
+# the COPYRIGHT file that was distributed with this source code.
+# Otherwise, see: <https://www.gnu.org/licenses/agpl-3.0>.
+
+App\Entity\Link:
+    type: entity
+    name: yauss_links
+    repositoryClass: App\Repository\LinkRepository
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        url:
+            type: string
+            scale: 32767
+        short:
+            type: string
+            scale: 32
+        title:
+            type: string
+            length: 64
+            nullable: true
+        description:
+            type: string
+            length: 255
+            nullable: true
+        token:
+            type: string
+            length: 255
+            nullable: true
+        is_private:
+            type: boolean
+    manyToMany:
+        owners:
+            targetEntity: User
+    manyToMany:
+        editors:
+            targetEntity: User
+    manyToMany:
+        guests:
+            targetEntity: User

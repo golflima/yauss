@@ -27,10 +27,9 @@ $app->register(new Dflydev\Provider\DoctrineOrm\DoctrineOrmServiceProvider(), ar
     'orm.em.options' => array(
         'mappings' => array(
             array(
-                'type' => 'annotation',
-                'namespace' => 'GL\Yauss\Entity',
-                'path' => __DIR__.'/../src/Entity',
-                'use_simple_annotation_reader ' => false,
+                'type' => 'simple_yml',
+                'namespace' => 'App\Entity',
+                'path' => __DIR__.'/doctrine/mapping',
             ),
         ),
     ),

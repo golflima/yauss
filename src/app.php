@@ -34,8 +34,8 @@ $app->register(
     new AnnotationServiceProvider(),
     array(
     "annot.cache" => new FilesystemCache(__DIR__."/../var/cache/annot"),
-    "annot.controllerDir" => __DIR__."/Controller",
-    "annot.controllerNamespace" => "GolfLima\\Yauss\\Controller\\",
+    "annot.controllerDir" => __DIR__."/App/Controller",
+    "annot.controllerNamespace" => "App\\Controller\\",
     )
 );
 

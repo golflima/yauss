@@ -11,7 +11,7 @@
  * Otherwise, see: <https://www.gnu.org/licenses/agpl-3.0>.
  */
 
-namespace GolfLima\Yauss\Controller\Api;
+namespace App\Controller\Api;
 
 use DDesrosiers\SilexAnnotations\Annotations as SLX;
 use Silex\Application;
@@ -19,14 +19,14 @@ use Symfony\Component\HttpFoundation\Request;
 use GolfLima\Yauss\Exception\NotImplementedException;
 
 /**
- * Controller for "/api/links", manages users.
+ * Controller for "/api/users", manages users.
  *
- * @SLX\Controller(prefix="/api/links")
+ * @SLX\Controller(prefix="/api/users")
  */
-class LinkController
+class UserController
 {
     /**
-     * Create a new link.
+     * Create a new user.
      *
      * @SLX\Route(
      *      @SLX\Request(method="POST", uri="")
@@ -43,7 +43,7 @@ class LinkController
     }
 
     /**
-     * Get an existing link.
+     * Get details of logged user.
      *
      * @SLX\Route(
      *      @SLX\Request(method="GET", uri="")
@@ -60,7 +60,7 @@ class LinkController
     }
 
     /**
-     * Update an existing link.
+     * Update logged user.
      *
      * @SLX\Route(
      *      @SLX\Request(method="PUT", uri="")
@@ -77,7 +77,7 @@ class LinkController
     }
 
     /**
-     * Delete an existing link.
+     * Delete logged user.
      *
      * @SLX\Route(
      *      @SLX\Request(method="DELETE", uri="")
@@ -89,6 +89,40 @@ class LinkController
      * @return  Symfony\Component\HttpFoundation\Response
      */
     public function delete(Application $app, Request $request)
+    {
+        throw new NotImplementedException();
+    }
+
+    /**
+     * Login as an existing user.
+     *
+     * @SLX\Route(
+     *      @SLX\Request(method="POST", uri="login")
+     * )
+     *
+     * @param   Silex\Application                        $app     Silex application object.
+     * @param   Symfony\Component\HttpFoundation\Request $request Silex request object.
+     *
+     * @return  Symfony\Component\HttpFoundation\Response
+     */
+    public function login(Application $app, Request $request)
+    {
+        throw new NotImplementedException();
+    }
+
+    /**
+     * Logout from an existing user.
+     *
+     * @SLX\Route(
+     *      @SLX\Request(method="POST", uri="login")
+     * )
+     *
+     * @param   Silex\Application                        $app     Silex application object.
+     * @param   Symfony\Component\HttpFoundation\Request $request Silex request object.
+     *
+     * @return  Symfony\Component\HttpFoundation\Response
+     */
+    public function logout(Application $app, Request $request)
     {
         throw new NotImplementedException();
     }

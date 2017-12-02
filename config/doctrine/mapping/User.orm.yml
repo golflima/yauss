@@ -1,0 +1,33 @@
+# This file is part of GL YAUSS.
+# See: <https://github.com/golflima/yauss>.
+#
+# Copyright (C) 2017 Jérémy Walther <jeremy.walther@golflima.net>.
+#
+# For the full copyright and license information, please view
+# the COPYRIGHT file that was distributed with this source code.
+# Otherwise, see: <https://www.gnu.org/licenses/agpl-3.0>.
+
+App\Entity\User:
+    type: entity
+    name: yauss_users
+    repositoryClass: App\Repository\UserRepository
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        name:
+            type: string
+            length: 255
+        password_hash:
+            type: string
+            scale: 255
+        password_salt:
+            type: string
+            scale: 255
+        email:
+            type: string
+            scale: 255
+    manyToMany:
+        auth_tokens:
+            targetEntity: Token

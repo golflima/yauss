@@ -11,8 +11,9 @@ web:
 # Stop:     `docker-compose down`
 # Shell:    `docker-compose exec web /bin/bash`
 
-# Windows:  `docker-compose run web bash -c 'dos2unix *.sh && chmod +x *.sh'`
+# Windows:  `docker-compose run web bash -c 'dos2unix scripts/*.sh && chmod +x scripts/*.sh'`
 
-# phpcs:    `docker-compose run web ./phpcs.sh`
-# phpcbf:   `docker-compose run web ./phpcbf.sh`
-# phpunit:  `docker-compose run web ./phpunit.sh`
+# doctrine: `docker-compose run web ./scripts/doctrine.sh`
+# phpcs:    `docker-compose run web ./scripts/phpcs.sh`
+# phpcbf:   `docker-compose run web ./scripts/phpcbf.sh`
+# phpunit:  `docker-compose run web ./scripts/phpunit.sh`
