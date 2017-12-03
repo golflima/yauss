@@ -11,6 +11,9 @@ App\Entity\Link:
     type: entity
     name: yauss_links
     repositoryClass: App\Repository\LinkRepository
+    indexes:
+        short_index:
+            columns: [ short ]
     id:
         id:
             type: integer
@@ -18,10 +21,11 @@ App\Entity\Link:
     fields:
         url:
             type: string
-            scale: 32767
+            length: 32767
         short:
             type: string
-            scale: 32
+            length: 32
+            unique: true
         title:
             type: string
             length: 64
@@ -32,16 +36,11 @@ App\Entity\Link:
             nullable: true
         token:
             type: string
-            length: 255
+            length: 128
             nullable: true
-        is_private:
+        isPrivate:
             type: boolean
-    manyToMany:
-        owners:
-            targetEntity: User
-    manyToMany:
-        editors:
-            targetEntity: User
-    manyToMany:
-        guests:
-            targetEntity: User
+    oneToMany:
+        users:
+            targetEntity: LinkUser
+            mappedBy: link

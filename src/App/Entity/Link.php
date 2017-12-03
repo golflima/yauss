@@ -40,19 +40,19 @@ class Link
     /**
      * @var boolean
      */
-    private $is_private;
+    private $isPrivate;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $owners;
+    private $users;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->owners = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -194,7 +194,7 @@ class Link
      */
     public function setIsPrivate($isPrivate)
     {
-        $this->is_private = $isPrivate;
+        $this->isPrivate = $isPrivate;
 
         return $this;
     }
@@ -206,41 +206,41 @@ class Link
      */
     public function getIsPrivate()
     {
-        return $this->is_private;
+        return $this->isPrivate;
     }
 
     /**
-     * Add owner
+     * Add user
      *
-     * @param \App\Entity\User $owner
+     * @param \App\Entity\LinkUser $user
      *
      * @return Link
      */
-    public function addOwner(\App\Entity\User $owner)
+    public function addUser(\App\Entity\LinkUser $user)
     {
-        $this->owners[] = $owner;
+        $this->users[] = $user;
 
         return $this;
     }
 
     /**
-     * Remove owner
+     * Remove user
      *
-     * @param \App\Entity\User $owner
+     * @param \App\Entity\LinkUser $user
      */
-    public function removeOwner(\App\Entity\User $owner)
+    public function removeUser(\App\Entity\LinkUser $user)
     {
-        $this->owners->removeElement($owner);
+        $this->users->removeElement($user);
     }
 
     /**
-     * Get owners
+     * Get users
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getOwners()
+    public function getUsers()
     {
-        return $this->owners;
+        return $this->users;
     }
 }
 

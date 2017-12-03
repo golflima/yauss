@@ -11,6 +11,9 @@ App\Entity\User:
     type: entity
     name: yauss_users
     repositoryClass: App\Repository\UserRepository
+    indexes:
+        name_index:
+            columns: [ name ]
     id:
         id:
             type: integer
@@ -19,15 +22,20 @@ App\Entity\User:
         name:
             type: string
             length: 255
-        password_hash:
+            unique: true
+        passwordHash:
             type: string
-            scale: 255
-        password_salt:
+            length: 128
+        passwordSalt:
             type: string
-            scale: 255
+            length: 128
         email:
             type: string
-            scale: 255
-    manyToMany:
-        auth_tokens:
-            targetEntity: Token
+            length: 255
+    oneToMany:
+        authTokens:
+            targetEntity: AuthToken
+            mappedBy: user
+        links:
+            targetEntity: LinkUser
+            mappedBy: user

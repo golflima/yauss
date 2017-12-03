@@ -20,12 +20,12 @@ class User
     /**
      * @var string
      */
-    private $password_hash;
+    private $passwordHash;
 
     /**
      * @var string
      */
-    private $password_salt;
+    private $passwordSalt;
 
     /**
      * @var string
@@ -35,14 +35,20 @@ class User
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $auth_tokens;
+    private $authTokens;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $links;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->auth_tokens = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->authTokens = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->links = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -88,7 +94,7 @@ class User
      */
     public function setPasswordHash($passwordHash)
     {
-        $this->password_hash = $passwordHash;
+        $this->passwordHash = $passwordHash;
 
         return $this;
     }
@@ -100,7 +106,7 @@ class User
      */
     public function getPasswordHash()
     {
-        return $this->password_hash;
+        return $this->passwordHash;
     }
 
     /**
@@ -112,7 +118,7 @@ class User
      */
     public function setPasswordSalt($passwordSalt)
     {
-        $this->password_salt = $passwordSalt;
+        $this->passwordSalt = $passwordSalt;
 
         return $this;
     }
@@ -124,7 +130,7 @@ class User
      */
     public function getPasswordSalt()
     {
-        return $this->password_salt;
+        return $this->passwordSalt;
     }
 
     /**
@@ -154,13 +160,13 @@ class User
     /**
      * Add authToken
      *
-     * @param \App\Entity\Token $authToken
+     * @param \App\Entity\AuthToken $authToken
      *
      * @return User
      */
-    public function addAuthToken(\App\Entity\Token $authToken)
+    public function addAuthToken(\App\Entity\AuthToken $authToken)
     {
-        $this->auth_tokens[] = $authToken;
+        $this->authTokens[] = $authToken;
 
         return $this;
     }
@@ -168,11 +174,11 @@ class User
     /**
      * Remove authToken
      *
-     * @param \App\Entity\Token $authToken
+     * @param \App\Entity\AuthToken $authToken
      */
-    public function removeAuthToken(\App\Entity\Token $authToken)
+    public function removeAuthToken(\App\Entity\AuthToken $authToken)
     {
-        $this->auth_tokens->removeElement($authToken);
+        $this->authTokens->removeElement($authToken);
     }
 
     /**
@@ -182,7 +188,41 @@ class User
      */
     public function getAuthTokens()
     {
-        return $this->auth_tokens;
+        return $this->authTokens;
+    }
+
+    /**
+     * Add link
+     *
+     * @param \App\Entity\LinkUser $link
+     *
+     * @return User
+     */
+    public function addLink(\App\Entity\LinkUser $link)
+    {
+        $this->links[] = $link;
+
+        return $this;
+    }
+
+    /**
+     * Remove link
+     *
+     * @param \App\Entity\LinkUser $link
+     */
+    public function removeLink(\App\Entity\LinkUser $link)
+    {
+        $this->links->removeElement($link);
+    }
+
+    /**
+     * Get links
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getLinks()
+    {
+        return $this->links;
     }
 }
 

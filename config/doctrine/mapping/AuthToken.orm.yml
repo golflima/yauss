@@ -7,22 +7,24 @@
 # the COPYRIGHT file that was distributed with this source code.
 # Otherwise, see: <https://www.gnu.org/licenses/agpl-3.0>.
 
-App\Entity\Token:
+App\Entity\AuthToken:
     type: entity
-    name: yauss_tokens
-    repositoryClass: App\Repository\UserRepository
+    name: yauss_auth_tokens
+    repositoryClass: App\Repository\AuthTokenRepository
     id:
         id:
-            type: integer
-            generator: { strategy: AUTO }
-    fields:
-        token:
             type: string
-            scale: 255
+            length: 128
+            generator: { strategy: NONE }
             options:
                 comment: Token, used for user authentification.
+    fields:
         expire:
             type: datetime
             nullable: true
             options:
                 comment: Expiration date of the token. It won't expire it set to NULL.
+    manyToOne:
+        user:
+            targetEntity: User
+            inversedBy: authTokens

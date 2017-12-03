@@ -1,0 +1,27 @@
+# This file is part of GL YAUSS.
+# See: <https://github.com/golflima/yauss>.
+#
+# Copyright (C) 2017 Jérémy Walther <jeremy.walther@golflima.net>.
+#
+# For the full copyright and license information, please view
+# the COPYRIGHT file that was distributed with this source code.
+# Otherwise, see: <https://www.gnu.org/licenses/agpl-3.0>.
+
+App\Entity\LinkUser:
+    type: entity
+    name: yauss_link_users
+    repositoryClass: App\Repository\LinkUserRepository
+    id:
+        link:
+            associationKey: true
+    fields:
+        type:
+            type: string
+            length: 16
+    manyToOne:
+        link:
+            targetEntity: Link
+            inversedBy: users
+        user:
+            targetEntity: User
+            inversedBy: links
