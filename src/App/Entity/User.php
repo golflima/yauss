@@ -43,12 +43,18 @@ class User
     private $links;
 
     /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $groups;
+
+    /**
      * Constructor
      */
     public function __construct()
     {
         $this->authTokens = new \Doctrine\Common\Collections\ArrayCollection();
         $this->links = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->groups = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -223,6 +229,40 @@ class User
     public function getLinks()
     {
         return $this->links;
+    }
+
+    /**
+     * Add group
+     *
+     * @param \App\Entity\UserGroup $group
+     *
+     * @return User
+     */
+    public function addGroup(\App\Entity\UserGroup $group)
+    {
+        $this->groups[] = $group;
+
+        return $this;
+    }
+
+    /**
+     * Remove group
+     *
+     * @param \App\Entity\UserGroup $group
+     */
+    public function removeGroup(\App\Entity\UserGroup $group)
+    {
+        $this->groups->removeElement($group);
+    }
+
+    /**
+     * Get groups
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getGroups()
+    {
+        return $this->groups;
     }
 }
 

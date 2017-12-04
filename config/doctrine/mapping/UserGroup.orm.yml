@@ -7,10 +7,10 @@
 # the COPYRIGHT file that was distributed with this source code.
 # Otherwise, see: <https://www.gnu.org/licenses/agpl-3.0>.
 
-App\Entity\User:
+App\Entity\UserGroup:
     type: entity
-    name: yauss_users
-    repositoryClass: App\Repository\UserRepository
+    name: yauss_user_groups
+    repositoryClass: App\Repository\UserGroupRepository
     indexes:
         name_index:
             columns: [ name ]
@@ -23,23 +23,21 @@ App\Entity\User:
             type: string
             length: 255
             unique: true
-        passwordHash:
+        allow:
             type: string
-            length: 128
-        passwordSalt:
-            type: string
-            length: 128
-        email:
+            length: 255
+        deny:
             type: string
             length: 255
     oneToMany:
-        authTokens:
-            targetEntity: AuthToken
-            mappedBy: user
-        links:
-            targetEntity: LinkUser
-            mappedBy: user
-    manyToMany:
-        groups:
+        childs:
             targetEntity: UserGroup
-            mappedBy: users
+            mappedBy: parent
+    manyToOne:
+        parent:
+            targetEntity: UserGroup
+            mappedBy: childs
+    manyToMany:
+        users:
+            targetEntity: User
+            mappedBy: groups
