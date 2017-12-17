@@ -1,5 +1,5 @@
 web:
-  image: virtuasa/php:7.1
+  image: virtuasa/php:7.2
   ports: 
     - "8080:80"
     - "8443:443"
