@@ -38,5 +38,16 @@ $app->register(
     "annot.controllerNamespace" => "App\\Controller\\",
     )
 );
+$app->register(
+    new Basster\Silex\Provider\Swagger\SwaggerProvider(),
+    array(
+    "swagger.servicePath" => __DIR__ . "/App",
+    )
+);
+$app["swagger.cache"] = array(
+    "max_age" => "432000", // 5 days in seconds
+    "s_maxage" => "432000", // 5 days in seconds
+    "public" => true,
+);
 
 return $app;

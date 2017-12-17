@@ -1,0 +1,22 @@
+User:
+  User_1:
+    name: admin
+    passwordHash: ChangeMe
+    passwordSalt: ChangeMe
+    email: admin@changeme
+    groups: [ admin ]
+  User_2:
+    name: guest
+    passwordHash: DefaultUserForNonLoggedPeople
+    passwordSalt: DefaultUserForNonLoggedPeople
+    email: guest@localhost
+    groups: [ guest ]
+
+Group:
+  Group_1:
+    name: admin
+    allow: "all"
+    deny: ""
+  Group_2:
+    name: guest
+    allow: "create_link, create_user, visit_link_public"

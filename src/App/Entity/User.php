@@ -1,5 +1,16 @@
 <?php
 
+/**
+ * This file is part of GL YAUSS.
+ * See: <https://github.com/golflima/yauss>.
+ *
+ * Copyright (C) 2017 Jérémy Walther <jeremy.walther@golflima.net>.
+ *
+ * For the full copyright and license information, please view
+ * the COPYRIGHT file that was distributed with this source code.
+ * Otherwise, see: <https://www.gnu.org/licenses/agpl-3.0>.
+ */
+
 namespace App\Entity;
 
 /**
@@ -43,9 +54,9 @@ class User
     private $links;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var \App\Entity\Group
      */
-    private $groups;
+    private $group;
 
     /**
      * Constructor
@@ -54,7 +65,6 @@ class User
     {
         $this->authTokens = new \Doctrine\Common\Collections\ArrayCollection();
         $this->links = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->groups = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -200,11 +210,11 @@ class User
     /**
      * Add link
      *
-     * @param \App\Entity\LinkUser $link
+     * @param \App\Entity\LinkAcl $link
      *
      * @return User
      */
-    public function addLink(\App\Entity\LinkUser $link)
+    public function addLink(\App\Entity\LinkAcl $link)
     {
         $this->links[] = $link;
 
@@ -214,9 +224,9 @@ class User
     /**
      * Remove link
      *
-     * @param \App\Entity\LinkUser $link
+     * @param \App\Entity\LinkAcl $link
      */
-    public function removeLink(\App\Entity\LinkUser $link)
+    public function removeLink(\App\Entity\LinkAcl $link)
     {
         $this->links->removeElement($link);
     }
@@ -232,37 +242,26 @@ class User
     }
 
     /**
-     * Add group
+     * Set group
      *
-     * @param \App\Entity\UserGroup $group
+     * @param \App\Entity\Group $group
      *
      * @return User
      */
-    public function addGroup(\App\Entity\UserGroup $group)
+    public function setGroup(\App\Entity\Group $group = null)
     {
-        $this->groups[] = $group;
+        $this->group = $group;
 
         return $this;
     }
 
     /**
-     * Remove group
+     * Get group
      *
-     * @param \App\Entity\UserGroup $group
+     * @return \App\Entity\Group
      */
-    public function removeGroup(\App\Entity\UserGroup $group)
+    public function getGroup()
     {
-        $this->groups->removeElement($group);
-    }
-
-    /**
-     * Get groups
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getGroups()
-    {
-        return $this->groups;
+        return $this->group;
     }
 }
-

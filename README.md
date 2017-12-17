@@ -1,4 +1,4 @@
-# GL YAUSS - Yet Another Url Shortener Service, by GolfLima
+# GL YAUSS - Yet Another Url Shortener Service
 
 > An API made with PHP/Silex providing advanced url shortener services for developers.
 

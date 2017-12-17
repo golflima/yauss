@@ -1,6 +1,6 @@
 {
     "name": "golflima/yauss",
-    "description": "GL YAUSS - Yet Another Url Shortener Service, by GolfLima.",
+    "description": "GL YAUSS - Yet Another Url Shortener Service.",
     "license": "AGPL-3.0",
     "authors": [
         {
@@ -17,9 +17,9 @@
         "source": "https://github.com/golflima/yauss"
     },
     "require": {
+        "basster/silex-simple-swagger-provider": "~2.0",
         "ddesrosiers/silex-annotation-provider": "~2.0",
         "dflydev/doctrine-orm-service-provider": "~2.0",
-        "erusev/parsedown": "~1.6",
         "ext-curl" : "*",
         "ext-json" : "*",
         "ext-mbstring" : "*",
@@ -39,7 +39,7 @@
         "symfony/form": "~2.8|^3.0",
         "symfony/monolog-bridge": "~2.8|^3.0",
         "symfony/process": "~2.8|^3.0",
-        "symfony/security": "~2.8|^3.0",
+        "symfony/security": "^4.0",
         "symfony/translation": "~2.8|^3.0",
         "symfony/twig-bridge": "~2.8|^3.0",
         "symfony/validator": "~2.8|^3.0"

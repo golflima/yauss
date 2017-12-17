@@ -1,16 +1,27 @@
 <?php
 
+/**
+ * This file is part of GL YAUSS.
+ * See: <https://github.com/golflima/yauss>.
+ *
+ * Copyright (C) 2017 Jérémy Walther <jeremy.walther@golflima.net>.
+ *
+ * For the full copyright and license information, please view
+ * the COPYRIGHT file that was distributed with this source code.
+ * Otherwise, see: <https://www.gnu.org/licenses/agpl-3.0>.
+ */
+
 namespace App\Entity;
 
 /**
- * LinkUser
+ * LinkAcl
  */
-class LinkUser
+class LinkAcl
 {
     /**
      * @var string
      */
-    private $type;
+    private $role;
 
     /**
      * @var \App\Entity\Link
@@ -24,27 +35,27 @@ class LinkUser
 
 
     /**
-     * Set type
+     * Set role
      *
-     * @param string $type
+     * @param string $role
      *
-     * @return LinkUser
+     * @return LinkAcl
      */
-    public function setType($type)
+    public function setRole($role)
     {
-        $this->type = $type;
+        $this->role = $role;
 
         return $this;
     }
 
     /**
-     * Get type
+     * Get role
      *
      * @return string
      */
-    public function getType()
+    public function getRole()
     {
-        return $this->type;
+        return $this->role;
     }
 
     /**
@@ -52,7 +63,7 @@ class LinkUser
      *
      * @param \App\Entity\Link $link
      *
-     * @return LinkUser
+     * @return LinkAcl
      */
     public function setLink(\App\Entity\Link $link)
     {
@@ -76,7 +87,7 @@ class LinkUser
      *
      * @param \App\Entity\User $user
      *
-     * @return LinkUser
+     * @return LinkAcl
      */
     public function setUser(\App\Entity\User $user = null)
     {
@@ -95,4 +106,3 @@ class LinkUser
         return $this->user;
     }
 }
-

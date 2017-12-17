@@ -22,6 +22,20 @@ use Symfony\Component\HttpFoundation\Request;
  * Controller for "/", redirect links and new user to the Editor.
  *
  * @SLX\Controller(prefix="/")
+ * @SWG\Info(
+ *      title="GL YAUSS",
+ *      description="[GL YAUSS - Yet Another Url Shortener Service](https://github.com/golflima/yauss)",
+ *      version=YAUSS_VERSION
+ * )
+ * @SWG\License(
+ *      name="AGPL-3.0",
+ *      url="https://www.gnu.org/licenses/agpl"
+ * )
+ * @SWG\Swagger(
+ *   schemes={"http", "https"},
+ *   host=YAUSS_HOST,
+ *   basePath="/api"
+ * )
  */
 class RootController
 {

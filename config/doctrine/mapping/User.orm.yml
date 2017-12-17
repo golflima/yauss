@@ -37,9 +37,9 @@ App\Entity\User:
             targetEntity: AuthToken
             mappedBy: user
         links:
-            targetEntity: LinkUser
+            targetEntity: LinkAcl
             mappedBy: user
-    manyToMany:
-        groups:
-            targetEntity: UserGroup
+    manyToOne:
+        group:
+            targetEntity: Group
             mappedBy: users

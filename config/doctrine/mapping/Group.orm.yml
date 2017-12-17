@@ -7,10 +7,10 @@
 # the COPYRIGHT file that was distributed with this source code.
 # Otherwise, see: <https://www.gnu.org/licenses/agpl-3.0>.
 
-App\Entity\UserGroup:
+App\Entity\Group:
     type: entity
-    name: yauss_user_groups
-    repositoryClass: App\Repository\UserGroupRepository
+    name: yauss_groups
+    repositoryClass: App\Repository\GroupRepository
     indexes:
         name_index:
             columns: [ name ]
@@ -23,21 +23,11 @@ App\Entity\UserGroup:
             type: string
             length: 255
             unique: true
-        allow:
-            type: string
-            length: 255
-        deny:
-            type: string
-            length: 255
     oneToMany:
-        childs:
-            targetEntity: UserGroup
-            mappedBy: parent
+        acl:
+            targetEntity: GroupAcl
+            mappedBy: group
     manyToOne:
-        parent:
-            targetEntity: UserGroup
-            mappedBy: childs
-    manyToMany:
         users:
             targetEntity: User
-            mappedBy: groups
+            mappedBy: group

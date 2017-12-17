@@ -42,5 +42,5 @@ App\Entity\Link:
             type: boolean
     oneToMany:
         users:
-            targetEntity: LinkUser
+            targetEntity: LinkAcl
             mappedBy: link
